@@ -1,4 +1,9 @@
-[
+{   "offices": [
+    {"office-name": "Lakeside",
+    "office-address": "233 Lakeside Road",
+    "postcode": 3000}],
+
+    "employees": [
     {
         "full-name": "George Lakes",
         "hours-worked": 4342,
@@ -22,5 +27,23 @@
         "hours-worked": 113,
         "id": "6",
         "occupation": "Manager"
+    },
+    {
+        "full-name": "Joe Smith",
+        "hours-worked": 0,
+        "id": "7",
+        "occupation": "Janitor"
+    },
+    {
+        "full-name": "Joe Smith",
+        "hours-worked": 0,
+        "id": "8",
+        "occupation": "Janitor"
+    },
+    {
+        "full-name": "Janith Finch",
+        "hours-worked": 12,
+        "id": "9",
+        "occupation": "Analyst"
     }
-]
+]}
