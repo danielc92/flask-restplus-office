@@ -3,6 +3,8 @@ from flask_restplus import Resource, Api, fields
 import json
 
 app = Flask(__name__)
+app.config['DATA_PATH'] = './data/data.json'
+
 api = Api(app,
           title="Office API",
           description="A test restful-api by Daniel.",
@@ -39,35 +41,74 @@ class Export(Resource):
         return {"message": "Data saved locally."}
 
 
-@api.route('/employees')
+@api.route('/offices/view/all')
+class Office(Resource):
+    def get(self):
+        return data['offices']
+
+
+@api.route('/offices/<string:ID>')
+class Office(Resource):
+    def get(self, ID):
+
+        result_set = [item for item in data['offices'] if ID == item['id']]
+
+        # If results exceeds 0, return the first result from the list
+        if len(result_set) > 0:
+            return result_set[0]
+        else:
+            return {"message": "No results found for employee id {}".format(ID)}
+
+    @api.expect(an_office)
+    def post(self, ID):
+
+        # Handle if result set is empty, if not find out if ID exists
+        if len(data['offices']) == 0:
+            result_set = None
+        else:
+            result_set = [item for item in data['offices'] if ID == item["id"]]
+
+        if result_set:
+            return {"message": "ID already exists. Choose another one"}
+        else:
+            post_data = api.payload
+            post_data["id"] = ID
+            data['offices'].append(post_data)
+            return data['offices']
+
+
+@api.route('/employees/view/all')
 class Employee(Resource):
     def get(self):
         return data['employees']
 
 
-@api.route('/employees/<string:emp_id>')
+@api.route('/employees/<string:ID>')
 class Employee(Resource):
-    def get(self, emp_id):
+    def get(self, ID):
 
-        result_set = [e for e in data['employees'] if emp_id == e['id']]
+        result_set = [item for item in data['employees'] if ID == item['id']]
 
+        # If results exceeds 0, return the first result from the list
         if len(result_set) > 0:
-            # Return the first result from the list if results are found.
             return result_set[0]
         else:
-            # Return no results feedback
-            return {"message": "No results found for employee id {}".format(emp_id)}
+            return {"message": "No results found for employee id {}".format(ID)}
 
     @api.expect(an_employee)
-    def post(self, emp_id):
+    def post(self, ID):
 
-        result_set = [e for e in data['employees'] if emp_id == e["id"]]
+        # Handle if result set is empty, if not find out if ID exists
+        if len(data['employees']) == 0:
+            result_set = None
+        else:
+            result_set = [item for item in data['employees'] if ID == item["id"]]
 
         if len(result_set) > 0:
             return {"message": "ID already exists. Choose another one"}
         else:
             post_data = api.payload
-            post_data["id"] = emp_id
+            post_data["id"] = ID
             data['employees'].append(post_data)
             return data['employees']
 
