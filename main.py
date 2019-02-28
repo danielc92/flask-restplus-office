@@ -7,7 +7,7 @@ app.config['DATA_PATH'] = './data/data.json'
 
 api = Api(app,
           title="Office API",
-          description="A test restful-api by Daniel.",
+          description="A Restful-API by Daniel.",
           validate=True)
 
 
@@ -28,18 +28,15 @@ an_office = api.model('Office',
 
 
 # Read in Data
-with open('./data.json', 'r') as f:
+with open(app.config['DATA_PATH'], 'r') as f:
     data = json.load(f)
 
 
-@api.route('/export')
-class Export(Resource):
-    def get(self):
-        with open('./data2.json', 'w') as f:
-            json.dump(data, f, sort_keys=True, indent=4)
-            f.close()
-        return {"message": "Data saved locally."}
-
+def save_data(data)
+    with open(app.config['DATA_PATH'], 'w') as f:
+        json.dump(data, f, sort_keys = True, indent=4)
+        f.close()
+        
 
 @api.route('/offices/view/all')
 class Office(Resource):
