@@ -57,13 +57,37 @@ def save_data(data):
         f.close()
 
 
-@api.route('/occupations/view/all')
+@api.route('/api/occupations/list')
+class Occupation(Resource):
+    def get(self):
+
+        result_set = [item['id'] for item in data['occupations']]
+        return result_set
+
+
+@api.route('/api/offices/list')
+class Office(Resource):
+    def get(self):
+
+        result_set = [item['id'] for item in data['offices']]
+        return result_set
+
+
+@api.route('/api/employees/list')
+class Employee(Resource):
+    def get(self):
+
+        result_set = [item['id'] for item in data['employees']]
+        return result_set
+
+
+@api.route('/api/occupations/view/all')
 class Occupation(Resource):
     def get(self):
         return data['occupations']
 
 
-@api.route('/occupations/<string:ID>')
+@api.route('/api/occupations/<string:ID>')
 class Occupation(Resource):
     def get(self, ID):
 
@@ -95,13 +119,13 @@ class Occupation(Resource):
             return data['occupations']
 
 
-@api.route('/offices/view/all')
+@api.route('/api/offices/view/all')
 class Office(Resource):
     def get(self):
         return data['offices']
 
 
-@api.route('/offices/<string:ID>')
+@api.route('/api/offices/<string:ID>')
 class Office(Resource):
     def get(self, ID):
 
@@ -133,13 +157,13 @@ class Office(Resource):
             return data['offices']
 
 
-@api.route('/employees/view/all')
+@api.route('/api/employees/view/all')
 class Employee(Resource):
     def get(self):
         return data['employees']
 
 
-@api.route('/employees/<string:ID>')
+@api.route('/api/employees/<string:ID>')
 class Employee(Resource):
     def get(self, ID):
 

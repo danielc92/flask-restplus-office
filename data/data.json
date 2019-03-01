@@ -59,6 +59,18 @@
             "hours-worked": 455,
             "id": "5",
             "occupation": "Architect"
+        },
+        {
+            "full-name": "Jone York",
+            "hours-worked": 1000,
+            "id": "40",
+            "occupation": "Analyst"
+        },
+        {
+            "full-name": "Anna York",
+            "hours-worked": 2030,
+            "id": "41",
+            "occupation": "Analyst"
         }
     ],
     "occupations": [
