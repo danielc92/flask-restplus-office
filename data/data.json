@@ -61,6 +61,36 @@
             "occupation": "Architect"
         }
     ],
+    "occupations": [
+        {
+            "bonus": 4555,
+            "capacity": 10,
+            "id": "1",
+            "salary": 35000,
+            "title": "Janitor"
+        },
+        {
+            "bonus": 43000,
+            "capacity": 1,
+            "id": "2",
+            "salary": 235000,
+            "title": "Director"
+        },
+        {
+            "bonus": 10000,
+            "capacity": 5,
+            "id": "3",
+            "salary": 80000,
+            "title": "Analyst"
+        },
+        {
+            "bonus": 80000,
+            "capacity": 5,
+            "id": "4",
+            "salary": 90000,
+            "title": "Engineer"
+        }
+    ],
     "offices": [
         {
             "address": "3 Lake Lane",

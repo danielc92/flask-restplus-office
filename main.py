@@ -57,6 +57,44 @@ def save_data(data):
         f.close()
 
 
+@api.route('/occupations/view/all')
+class Occupation(Resource):
+    def get(self):
+        return data['occupations']
+
+
+@api.route('/occupations/<string:ID>')
+class Occupation(Resource):
+    def get(self, ID):
+
+        # Filter results by id
+        result_set = [item for item in data['occupations'] if ID == item['id']]
+
+        # If results exceeds 0, return the first result from the list
+        if len(result_set) > 0:
+            return result_set[0]
+        else:
+            return {"message": "No results found for occupations id {}".format(ID)}
+
+    @api.expect(an_occupation)
+    def post(self, ID):
+
+        # Handle if result set is empty, if not find out if ID exists
+        if len(data['occupations']) == 0:
+            result_set = None
+        else:
+            result_set = [item for item in data['occupations'] if ID == item["id"]]
+
+        if result_set:
+            return {"message": "ID already exists. Choose another one"}
+        else:
+            post_data = api.payload
+            post_data["id"] = ID
+            data['occupations'].append(post_data)
+            save_data(data)
+            return data['occupations']
+
+
 @api.route('/offices/view/all')
 class Office(Resource):
     def get(self):
@@ -74,7 +112,7 @@ class Office(Resource):
         if len(result_set) > 0:
             return result_set[0]
         else:
-            return {"message": "No results found for employee id {}".format(ID)}
+            return {"message": "No results found for office id {}".format(ID)}
 
     @api.expect(an_office)
     def post(self, ID):
