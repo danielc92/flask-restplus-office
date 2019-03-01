@@ -1,46 +1,90 @@
-{   "offices": [],
-
+{
     "employees": [
-    {
-        "full-name": "George Lakes",
-        "hours-worked": 4342,
-        "id": "1",
-        "occupation": "Janitor"
-    },
-    {
-        "full-name": "Daniel Corcoran",
-        "hours-worked": 43,
-        "id": "3",
-        "occupation": "Engineer"
-    },
-    {
-        "full-name": "Lucy Loo",
-        "hours-worked": 13413,
-        "id": "4",
-        "occupation": "Analyst"
-    },
-    {
-        "full-name": "Lucy Bridge",
-        "hours-worked": 113,
-        "id": "6",
-        "occupation": "Manager"
-    },
-    {
-        "full-name": "Joe Smith",
-        "hours-worked": 0,
-        "id": "7",
-        "occupation": "Janitor"
-    },
-    {
-        "full-name": "Joe Smith",
-        "hours-worked": 0,
-        "id": "8",
-        "occupation": "Janitor"
-    },
-    {
-        "full-name": "Janith Finch",
-        "hours-worked": 12,
-        "id": "9",
-        "occupation": "Analyst"
-    }
-]}
+        {
+            "full-name": "George Lakes",
+            "hours-worked": 4342,
+            "id": "1",
+            "occupation": "Janitor"
+        },
+        {
+            "full-name": "Daniel Corcoran",
+            "hours-worked": 43,
+            "id": "3",
+            "occupation": "Engineer"
+        },
+        {
+            "full-name": "Lucy Loo",
+            "hours-worked": 13413,
+            "id": "4",
+            "occupation": "Analyst"
+        },
+        {
+            "full-name": "Lucy Bridge",
+            "hours-worked": 113,
+            "id": "6",
+            "occupation": "Manager"
+        },
+        {
+            "full-name": "Joe Smith",
+            "hours-worked": 0,
+            "id": "7",
+            "occupation": "Janitor"
+        },
+        {
+            "full-name": "Joe Smith",
+            "hours-worked": 0,
+            "id": "8",
+            "occupation": "Janitor"
+        },
+        {
+            "full-name": "Janith Finch",
+            "hours-worked": 12,
+            "id": "9",
+            "occupation": "Analyst"
+        },
+        {
+            "full-name": "Jess Jones",
+            "hours-worked": 5333,
+            "id": "11",
+            "occupation": "Director"
+        },
+        {
+            "full-name": "Robert Stanley",
+            "hours-worked": 50,
+            "id": "12",
+            "occupation": "Janitor"
+        },
+        {
+            "full-name": "Eric Jones",
+            "hours-worked": 455,
+            "id": "5",
+            "occupation": "Architect"
+        }
+    ],
+    "offices": [
+        {
+            "address": "3 Lake Lane",
+            "id": "1",
+            "name": "Lakeside",
+            "postcode": 2302
+        },
+        {
+            "address": "1 Ocean Lane",
+            "id": "2",
+            "name": "Oceanview",
+            "postcode": 2302
+        },
+        {
+            "address": "4 Smith Road",
+            "id": "4",
+            "name": "Exhibition",
+            "postcode": 2303
+        },
+        {
+            "address": "54 Collins Road",
+            "id": "3",
+            "name": "Collins",
+            "postcode": 3000
+        }
+    ]
+}

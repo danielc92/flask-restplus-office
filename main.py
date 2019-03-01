@@ -13,18 +13,36 @@ api = Api(app,
 
 an_employee = api.model('Employee',
                         {
-                            "full-name": fields.String(required=True, description="Full name of employee."),
-                            "occupation": fields.String(required=True, description="Job title in company."),
-                            "hours-worked": fields.Integer(required=True, description="Number of hours worked for company.")
+                            "full-name": fields.String(required=True,
+                                                       description="Full name of employee."),
+                            "occupation": fields.String(required=True,
+                                                        description="Job title in company."),
+                            "hours-worked": fields.Integer(required=True,
+                                                           description="Number of hours worked for company.")
                         })
 
 
 an_office = api.model('Office',
                       {
-                          "name": fields.String(required=True, description="Office name."),
-                          "address": fields.String(required=True, description="Office address."),
-                          "postcode": fields.Integer(required=True, description="Office postcode.")
+                          "name": fields.String(required=True,
+                                                description="Office name."),
+                          "address": fields.String(required=True,
+                                                   description="Office address."),
+                          "postcode": fields.Integer(required=True,
+                                                     description="Office postcode.")
                       })
+
+an_occupation = api.model('Occupation',
+                          {
+                              "title": fields.String(required=True,
+                                                     description="Job title.") ,
+                              "salary": fields.Integer(required=True,
+                                                       description="Job salary.") ,
+                              "bonus": fields.Integer(required=True,
+                                                      description="Job salary bonus.") ,
+                              "capacity": fields.Integer(required=True,
+                                                         description="Job capacity (positions).") 
+                          })
 
 
 # Read in Data
@@ -32,11 +50,12 @@ with open(app.config['DATA_PATH'], 'r') as f:
     data = json.load(f)
 
 
-def save_data(data)
+def save_data(data):
+    """Simple data saving function to be called at the end of POST methods."""
     with open(app.config['DATA_PATH'], 'w') as f:
-        json.dump(data, f, sort_keys = True, indent=4)
+        json.dump(data, f, sort_keys=True, indent=4)
         f.close()
-        
+
 
 @api.route('/offices/view/all')
 class Office(Resource):
@@ -48,6 +67,7 @@ class Office(Resource):
 class Office(Resource):
     def get(self, ID):
 
+        # Filter results by id
         result_set = [item for item in data['offices'] if ID == item['id']]
 
         # If results exceeds 0, return the first result from the list
@@ -71,6 +91,7 @@ class Office(Resource):
             post_data = api.payload
             post_data["id"] = ID
             data['offices'].append(post_data)
+            save_data(data)
             return data['offices']
 
 
@@ -84,6 +105,7 @@ class Employee(Resource):
 class Employee(Resource):
     def get(self, ID):
 
+        # Filter results by id
         result_set = [item for item in data['employees'] if ID == item['id']]
 
         # If results exceeds 0, return the first result from the list
@@ -107,7 +129,9 @@ class Employee(Resource):
             post_data = api.payload
             post_data["id"] = ID
             data['employees'].append(post_data)
+            save_data(data)
             return data['employees']
+
 
 if __name__ == '__main__':
     app.run(debug=True)
