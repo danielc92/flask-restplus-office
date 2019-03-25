@@ -127,6 +127,12 @@
             "id": "3",
             "name": "Collins",
             "postcode": 3000
+        },
+        {
+            "address": "4 Goose Lane",
+            "id": "6",
+            "name": "Goose Goods",
+            "postcode": 3000
         }
     ]
 }
