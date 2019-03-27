@@ -1,4 +1,4 @@
-# Project Title
+# Flask Restplus Office App
 Building a restful api with flask/flask-restplus/python
 API based on office theme integrating concepts of employees, occupations and offices. Application to be hosted on a PAAS solution.
 
