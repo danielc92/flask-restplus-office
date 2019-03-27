@@ -1,6 +1,8 @@
 # Flask Restplus Office App
 Building a restful api with flask/flask-restplus/python
-API based on office theme integrating concepts of employees, occupations and offices. Application to be hosted on a PAAS solution.
+API based on office theme integrating concepts of employees, occupations and offices. 
+
+Application is currently hosted on heroku. [Click here to view](https://office-api.herokuapp.com)
 
 # Before you get started
 - Install python version 3 + 
