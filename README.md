@@ -3,14 +3,14 @@ Building a restful api with flask/flask-restplus/python
 API based on office theme integrating concepts of employees, occupations and offices. Application to be hosted on a PAAS solution.
 
 # Before you get started
-Install python3.
-Familiarity with API concept.
-Familiarity with web framework flask.
+- Install python version 3 + 
+- Familiarity with API concept.
+- Familiarity with Flask Micro Web Framework.
 
 # Setup
 **How to obtain this repository:**
 ```sh
-git clone https//link.to.this.projects.git-repo
+git clone https://github.com/danielc92/flask-restplus-office.git
 ```
 **Modules/dependencies:**
 - `flask`
